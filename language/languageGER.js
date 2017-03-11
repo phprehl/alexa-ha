@@ -23,8 +23,8 @@ language.utterances = {
 	// move shutter to position
 	// control sound volume
     'SetLevel': [
-		"{dimme|reduziere|erhöhe|fahre|stelle|regle|mache|mach} {den|die|das|mein|meinen|meins|meine|} {-|Lautstärke|Rollo|Rolladen|Jalousie|ItemName} {in der|im|auf dem|auf der} {-|Location} {auf|} {0-100 by 5|Percent} {Prozent|}",
-		"{dimme|reduziere|erhöhe|fahre|stelle|regle|mache|mach} {den|die|das|mein|meinen|meins|meine|} {-|Location} {-|Lautstärke|Rollo|Rolladen|Jalousie|ItemName} {auf|} {0-100 by 5|Percent} {Prozent|}"
+		"{dimme|reduziere|erhöhe|fahre|fahr|stelle|stell|regle|mache|mach} {den|die|das|mein|meinen|meins|meine|} {-|Lautstärke|Rollo|Rolladen|Jalousie|ItemName} {in der|im|auf dem|auf der} {-|Location} {auf|} {0-100 by 5|Percent} {Prozent|}",
+		"{dimme|reduziere|erhöhe|fahre|fahr|stelle|stell|regle|mache|mach} {den|die|das|mein|meinen|meins|meine|} {-|Location} {-|Lautstärke|Rollo|Rolladen|Jalousie|ItemName} {auf|} {0-100 by 5|Percent} {Prozent|}"
     ],
     // Set target temperature for house HVAC
     'SetTemp': [
