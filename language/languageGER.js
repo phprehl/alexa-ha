@@ -5,9 +5,10 @@ var language = {};
 
 language.utterances = {
     // Switch devices ON/OFF in a particular room
+	// move shutter UP/DOWN in a particular room
     'Switch': [
-      "{schalte|mache|mach|fahre} {den|die|das|mein|meinen|meins|meine|} {-|ItemName} {in der|im|an der|am} {-|Location} {-|Action}",
-      "{schalte|mache|mach|fahre} {den|die|das|mein|meinen|meins|meine|} {-|Location} {-|ItemName} {-|Action}",
+      "{schalte|mache|mach|fahre|fahr|stelle|stell} {den|die|das|mein|meinen|meins|meine|} {-|ItemName} {in der|im|an der|am|auf dem|auf der} {-|Location} {-|Action}",
+      "{schalte|mache|mach|fahre|fahr|stelle|stell} {den|die|das|mein|meinen|meins|meine|} {-|Location} {-|ItemName} {-|Action}",
 
     ],
     // Set HSB color values for lights in a particular room
@@ -19,15 +20,16 @@ language.utterances = {
         "make {the|my |} {-|Location} {light|lights} {-|Color}"
     ],
     // Dim lights in a particular room
+	// move shutter to position
+	// control sound volume
     'SetLevel': [
-        "{to |} {dim|turn down|turn up|soften|adjust} {the|my |} {light|lights|lighting|ItemName} {in the |} {-|Location} to {0-100 by 5|Percent} {percent |}",
-        "{to |} {dim|turn down|turn up|soften|adjust} {the|my |} {-|Location} {light|lights|lighting|ItemName} to {0-100 by 5|Percent} {percent |}",
-        "{to |} {set|turn down|turn up|adjust} {the|my |} {-|Location} {volume|ItemName} to {0-100 by 5|Percent} {percent |}"
+		"{dimme|reduziere|erhöhe|fahre|fahr|stelle|stell|regle|mache|mach} {den|die|das|mein|meinen|meins|meine|} {-|Lautstärke|Rollo|Rolladen|Jalousie|ItemName} {in der|im|auf dem|auf der} {-|Location} {auf|} {0-100 by 5|Percent} {Prozent|}",
+		"{dimme|reduziere|erhöhe|fahre|fahr|stelle|stell|regle|mache|mach} {den|die|das|mein|meinen|meins|meine|} {-|Location} {-|Lautstärke|Rollo|Rolladen|Jalousie|ItemName} {auf|} {0-100 by 5|Percent} {Prozent|}"
     ],
     // Set target temperature for house HVAC
     'SetTemp': [
-        "{to |} {set|change|adjust} {the|my |} {-|Location} {thermostat|temperature} to {60-80|Degree} {degrees |}",
-        "{to |} {set|change|adjust} {the|my |} {thermostat|temperature} {in the|in my |} {-|Location} to {60-80|Degree} {degrees |}"
+		"{reduziere|erhöhe|stelle|regle} {den|die|} {-|Temperatur|Theromstat|ItemName} {in der|im|auf dem|auf der} {-|Location} {auf|} {15-30|Degree} {Grad|}",
+		"{reduziere|erhöhe|stelle|regle} {den|die|} {-|Location} {-|Temperatur|Theromstat|ItemName} {auf|} {15-30|Degree} {Grad|}"
     ],
     // Set house/lighting/security/etc scenes
     'SetMode': [
@@ -44,8 +46,8 @@ language.utterances = {
         // "{to |} {get|check} {the|my |} {temperature|humidity|luminance|power consumption|visibility|pressure|wind|humidex|MetricName} {in the |} {-|Location}",
         // "whats {the|my |} {-|Location} {temperature|humidity|luminance|power consumption|visibility|pressure|wind|humidex|MetricName}",
         // "whats {the|my |} {temperature|humidity|luminance|power consumption|visibility|pressure|wind|humidex|MetricName} {in the |} {-|Location}"
-        "wie ist {die|der|das|} {-|MetricName} {in der|im|an der|am} {-|Location}",
-
+        "{sag mir|wie ist} {die|der|das|den|} {-|Raumtemperatur|Temperatur|Helligkeit|Luftfeuchte|Luftfeuchtigkeit|Stromverbrauch|MetricName} {in der|im|an der|am} {-|Location}",
+        "{sag mir|wie ist} {die|der|das|den|} {-|Location} {-|Raumtemperatur|Temperatur|Helligkeit|Luftfeuchte|Luftfeuchtigkeit|Stromverbrauch|MetricName}"
     ],
     // Get current house/lighting/security/etc scene
     'GetMode': [
@@ -54,6 +56,10 @@ language.utterances = {
     ],
     // Execute 'raw' voice commands, request/response handled entirely by custom HA server rules
     'VoiceCMD': [
+        "{Gute Nacht|Input}",
+        "{Tschüss|Input}",
+        "{Servus|Input}",
+        "{Mache Kino|Input}",
         "{lets party|Input}",
         "{call my bank|call my phone|call work|Input}",
         "{status update|Input}",
@@ -64,6 +70,7 @@ language.utterances = {
         "{its} {hot in here|Input}"
     ],
     // Research something arbitrary via Wolfram API call
+	// at the moment not available in german
     'Research': [
         "{to |} research {what is the atomic weight of boron|Question}",
         "{to |} research {what is thirty divided by five|Question}",
@@ -79,6 +86,9 @@ language.utterances = {
     ],
     // Stop Intent
     'Stop': [
+        "stop",
+        "das zu stoppen",
+        "aufhören",
         "{to |} stop {that |}",
         "{to |} quit {that |}",
         "{to |} exit {that |}",
@@ -86,11 +96,15 @@ language.utterances = {
     ],
     // Cancel Intent
     'Cancel': [
+        "beenden",
+        "das zu beenden",
         "{to |} cancel {that |}"
     ],
     // Help Intent
     'Help': [
-        "{for|to |} help {me |}"
+        "Hilfe"
+        "mir zu helfen"
+       "{for|to |} help {me |}"
     ]
 
     //TODO implement the yes/no/repeat intents
@@ -120,7 +134,7 @@ language.utterances = {
 // Help response & card
 language.help = {
     'say':  [
-            'Im Moment behersche ich das schalten von Lampen und das hoch und runter fahren von Rolläden' ],
+            'Im Moment behersche ich das Schalten und Dimmen von Lampen, das hoch und runter fahren von Rolläden, das Einstellen der Raumlautstärke und das Abfragen von Sensorwerten.' ],
     'card': [
             'Cheat sheet: kommt noch'
             ]
@@ -158,10 +172,10 @@ language.help = {
     if (action === 'AUS') {
       return 'OFF'
     }
-    if (action === 'HOCH'|| action === 'NACH OBEN'){
+    if (action === 'HOCH'|| action === 'NACH OBEN' || action === 'RUNTER' || action === 'AUF'){
       return '0'
     }
-    if (action === 'RUNTER'|| action === 'NACH UNTEN'){
+    if (action === 'RUNTER'|| action === 'NACH UNTEN' || action === 'ZU'){
       return '100'
     }
   }
@@ -170,7 +184,7 @@ language.help = {
   language.replyGetState = function replyGetState (location, metricName, state, HA_unit ){
     state = state.replace('.',',');
     state = state.substr(0,4);
-    return 'die aktuelle ' + metricName + ' beträgt ' + state  +' '+HA_unit;
+    return 'der aktuelle Messwert für' + metricName + ' beträgt ' + state  +' '+HA_unit;
   }
   language.greeting = "openhab zu Diensten!"
 
